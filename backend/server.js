@@ -9,6 +9,10 @@ app.use(cors());
 // Parse JSON bodies
 app.use(express.json());
 
+// Basic route to confirm server is running
+app.get("/", (req, res) => {
+  res.send("Login API running");
+});
 // Login endpoint
 app.post('/login', (req, res) => {
   const { username, password } = req.body;

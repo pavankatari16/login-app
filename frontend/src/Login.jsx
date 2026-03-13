@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = "http://localhost:5001";
+const API = "https://login-app-wfbu.onrender.com";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -21,6 +21,15 @@ function Login() {
     }
   }, []);
 
+
+/**
+ * Handles login form submission.
+ * Trims whitespace from username and password fields.
+ * If either field is empty, sets error message and returns.
+ * If credentials are invalid, sets error message.
+ * If login is successful, saves username to localStorage for future login, and navigates to welcome page.
+ * @param {Event} e - Form submission event.
+ */
   const handleLogin = async (e) => {
     e.preventDefault();
 
